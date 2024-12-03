@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Header, List, ListContent, ListIcon, ListItem } from 'semantic-ui-react';
 
 
 
@@ -20,12 +21,15 @@ useEffect(() => {
 
   return (
     <div>
-      <h1>App</h1>
-        <ul>
+     <Header as='h2' icon='twitter' content='Reactivities'></Header>
+        <List>
           {activities.map((activity: any) => (
-            <li key={activity.id}>{activity.title}</li>
+            <ListItem key={activity.id}>
+              <ListIcon name='github' size='large' verticalAlign='middle' />
+              <ListContent>{activity.title}</ListContent>
+            </ListItem>
           ))}
-      </ul>
+      </List>
     </div>
   )
 }
