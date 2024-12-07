@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Persistence;
 
 namespace API.Controllers
@@ -7,12 +8,7 @@ namespace API.Controllers
     [ApiController]
     public class BaseApiController : ControllerBase
     {
-        protected readonly DataContext _context;
-
-        public BaseApiController(DataContext context)
-        {
-            _context = context;
-        }
+        protected IMediator Mediator => HttpContext.RequestServices.GetService<IMediator>()!; //we could check for null here, but we know it will never be null as we have registered the Mediator in the Program.cs file
 
         [Route("/")]
         [Route("Index")]

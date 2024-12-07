@@ -19,6 +19,8 @@ useEffect(() => {
     })
 }, []) //this empty array is a dependency array, it says, only run this effect when the component mounts
 
+
+
   return (
     <div>
      <Header as='h2' icon='twitter' content='Reactivities'></Header>
